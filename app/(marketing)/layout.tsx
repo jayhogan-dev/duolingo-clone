@@ -5,6 +5,8 @@ type Props = {
   children: React.ReactNode;
 };
 
+// landing Layout
+
 const MarketingLayout = ({ children }: Props) => {
   return (
     <div className="min-h-screen flex flex-col">
