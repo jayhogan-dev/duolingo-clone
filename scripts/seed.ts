@@ -99,11 +99,24 @@ const main = async () => {
         order: 1,
         question: "Which one of these is 'man'?",
       },
+      {
+        id: 2,
+        lessonId: 1,
+        type: "ASSIST",
+        order: 2,
+        question: "'woman'?",
+      },
+      {
+        id: 3,
+        lessonId: 1,
+        type: "SELECT",
+        order: 3,
+        question: "Which one of these is 'child'",
+      },
     ]);
 
     await db.insert(schema.challengeOptions).values([
       {
-        id: 1,
         challengeId: 1,
         imageSrc: "/man.svg",
         correct: true,
@@ -111,7 +124,6 @@ const main = async () => {
         audioSrc: "/swe_man.mp3",
       },
       {
-        id: 2,
         challengeId: 1,
         imageSrc: "/woman.svg",
         correct: false,
@@ -119,12 +131,80 @@ const main = async () => {
         audioSrc: "/swe_woman.mp3",
       },
       {
-        id: 3,
         challengeId: 1,
         imageSrc: "/child.svg",
         correct: false,
         text: "barn",
         audioSrc: "/swe_child.mp3",
+      },
+    ]);
+
+    await db.insert(schema.challengeOptions).values([
+      {
+        challengeId: 2,
+        correct: false,
+        text: "man",
+        audioSrc: "/swe_man.mp3",
+      },
+      {
+        challengeId: 2,
+        correct: true,
+        text: "kvinna",
+        audioSrc: "/swe_woman.mp3",
+      },
+      {
+        challengeId: 2,
+        correct: false,
+        text: "barn",
+        audioSrc: "/swe_child.mp3",
+      },
+    ]);
+
+    await db.insert(schema.challengeOptions).values([
+      {
+        challengeId: 3,
+        imageSrc: "/man.svg",
+        correct: false,
+        text: "man",
+        audioSrc: "/swe_man.mp3",
+      },
+      {
+        challengeId: 3,
+        imageSrc: "/woman.svg",
+        correct: false,
+        text: "kvinna",
+        audioSrc: "/swe_woman.mp3",
+      },
+      {
+        challengeId: 3,
+        imageSrc: "/child.svg",
+        correct: true,
+        text: "barn",
+        audioSrc: "/swe_child.mp3",
+      },
+    ]);
+
+    await db.insert(schema.challenges).values([
+      {
+        id: 4,
+        lessonId: 2,
+        type: "SELECT",
+        order: 1,
+        question: "Which one of these is 'man'?",
+      },
+      {
+        id: 5,
+        lessonId: 2,
+        type: "ASSIST",
+        order: 2,
+        question: "'woman'?",
+      },
+      {
+        id: 6,
+        lessonId: 2,
+        type: "SELECT",
+        order: 3,
+        question: "Which one of these is 'child'",
       },
     ]);
 
