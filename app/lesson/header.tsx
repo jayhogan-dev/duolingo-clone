@@ -28,7 +28,8 @@ const Header = ({ hearts, percentage, hasActiveSubscription }: Props) => {
           className="mr-2"
         />
         {hasActiveSubscription ? (
-          <InfinityIcon className="h-6 w-6 stroke-[3]" />
+          // shrink-0 added to limit the image from shrinking
+          <InfinityIcon className="h-6 w-6 stroke-[3] shrink-0" />
         ) : (
           hearts
         )}
