@@ -1,6 +1,6 @@
 "use client";
 
-import { challenges, challengeOptions } from "@/db/schema";
+import { challenges, challengeOptions, userSubscription } from "@/db/schema";
 import Confetti from "react-confetti";
 import { useState, useTransition } from "react";
 import { useWindowSize, useMount } from "react-use";
@@ -25,7 +25,11 @@ type Props = {
     completed: boolean;
     challengeOptions: (typeof challengeOptions.$inferSelect)[];
   })[];
-  userSubscription: any;
+  userSubscription:
+    | (typeof userSubscription.$inferSelect & {
+        isActive: boolean;
+      })
+    | null;
 };
 
 const Quiz = ({
@@ -173,6 +177,7 @@ const Quiz = ({
               variant="points"
               value={challenges.length * 10}
             />
+            {/* TODO: add user subscription in so if user sub is active, they don't see a total number of hearts, rather an infinity sign */}
             <ResultCard
               variant="hearts"
               value={hearts}
